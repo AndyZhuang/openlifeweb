@@ -280,26 +280,55 @@
 
         <section id="get-started" class="get-started">
             <div class="container">
-                <h2 class="section-title">Get Started in 30 Seconds</h2>
-                <p class="section-subtitle">Install and run your first bioinformatics analysis</p>
+                <h2 class="section-title">Get Started</h2>
+                <p class="section-subtitle">Install from source and run your first bioinformatics analysis</p>
                 <div class="install-steps">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3>Download</h3>
-                            curl -L https://github.com/andyzhuang/openlife/releases/latest/download/openlife -o openlife
-chmod +x openlife</code></pre>
+                            <h3>Install ZeroClaw</h3>
+                            <pre><code>cargo install zeroclaw</code></pre>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>Initialize</h3>
-                            <pre><code>openlife onboard</code></pre>
+                            <h3>Clone & Build</h3>
+                            <pre><code>git clone https://github.com/openlife-ai/openlife.git
+cd openlife
+cargo build --release</code></pre>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Add to PATH</h3>
+                            <pre><code># Option A: Copy to /usr/local/bin (requires sudo)
+sudo cp target/release/openlife /usr/local/bin/
+
+# Option B: Add to ~/.local/bin (recommended)
+mkdir -p ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+cp target/release/openlife ~/.local/bin/</code></pre>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Verify</h3>
+                            <pre><code>openlife --help
+openlife bio list</code></pre>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Initialize</h3>
+                            <pre><code>openlife onboard --force</code></pre>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
                         <div class="step-content">
                             <h3>Run Analysis</h3>
                             <pre><code>openlife bio query "What drugs should I avoid based on my CYP2D6 gene?"</code></pre>
